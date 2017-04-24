@@ -1,10 +1,6 @@
 {
   "name": "open-map",
   "version": "0.0.0",
-  "engines": {
-    "node": "7.4.0",
-    "npm": "4.0.4"
-  },
   "license": "MIT",
   "scripts": {
     "ng": "ng",
