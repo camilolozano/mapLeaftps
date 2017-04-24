@@ -4,7 +4,7 @@ import * as L from 'leaflet';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['../../node_modules/leaflet/dist/leaflet.css']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   title = 'app works!';
