@@ -10,7 +10,6 @@
     "ng": "ng",
     "start": "ng serve",
     "postinstall": "ng build --aot -prod",
-    "deploy": "git push heroku master",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -31,9 +30,7 @@
     "express": "^4.15.2",
     "helmet": "^3.5.0",
     "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4"
-  },
-  "devDependencies": {
+    "zone.js": "^0.8.4",
     "@angular/cli": "1.0.0",
     "@angular/compiler-cli": "^4.0.0",
     "@types/jasmine": "2.5.38",
@@ -51,5 +48,8 @@
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
     "typescript": "~2.2.0"
+  },
+  "devDependencies": {
+    
   }
 }
