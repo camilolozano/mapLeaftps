@@ -1,1 +1,13 @@
 @import 'https://unpkg.com/leaflet@1.0.3/dist/leaflet.css';
+
+.map-css {
+  display: block;
+  width: 1000px;
+  height: 590px;
+}
+
+.scroll {
+  width: 1000px;
+  height: 590px;
+  overflow: auto;
+}

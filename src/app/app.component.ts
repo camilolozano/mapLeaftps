@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MAP_CONFIG, URL_MAP } from './shared/map_config';
 import * as L from 'leaflet';
+declare var $: any;
 
 @Component({
   selector: 'app-root',
@@ -7,17 +9,58 @@ import * as L from 'leaflet';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  evento: any;
   title = 'app works!';
   ngOnInit() {
-    let map = L.map('map').setView([51.505, -0.09], 13);
-    const URL_MAP = 'https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2FtaWxvbG96YW5vIiwiYSI6IndjZ2VPS2cifQ.tphor4E05iEg3b19nfN3Dg';
-    L.tileLayer(URL_MAP, {
-      maxZoom: 10,
-      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-      '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-      'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-      id: 'mapbox.streets'
+    const map = L.map('map').setView([1.2135252, -77.312242], 13);
+    L.tileLayer(URL_MAP, { MAP_CONFIG }).addTo(map);
+
+    const marker = L.marker([1.2135252, -77.312242],
+      {
+        title: 'MyPoint',
+        alt: 'The Big I',
+        draggable: true
+      }).addTo(map);
+
+    marker.bindPopup(`
+        <h1>My marcador</h1>
+        </bienvenido>
+        <ul>
+          <li>Hola uno</li>
+          <lihola dos></li>
+          <li>hola tres</li>
+        </ul>
+      `);
+
+    const polyline = L.polyline([[1.2135252, -77.312], [1.2135252, -75.312242]], {
+      color: 'red',
+      weight: 8
     }).addTo(map);
 
+
+    map.on('click', (e) => {
+      this.evento = e;
+      const marker_cl = L.marker(this.evento.latlng, {
+        title: 'MyPoint',
+        alt: 'The Big I',
+        draggable: true
+      }).addTo(map);
+
+      marker_cl.bindPopup(`
+        <h1>My marcador</h1>
+        </bienvenido>
+        <ul>
+          <li>Hola uno</li>
+          <lihola dos></li>
+          <li>hola tres</li>
+        </ul>
+      `);
+      console.log(this.evento.latlng);
+    });
+
+    $('.scrollspy').scrollSpy();
+
   }
+
+
 }
