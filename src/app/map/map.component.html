@@ -1,0 +1,23 @@
+<div id="map" class="map-css"></div>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content center">
+    <h4>Ingrese la información</h4>
+  </div>
+  <div class="row">
+
+    <form class="col m12" [formGroup]="markerInformationForm" (ngSubmit)="markerSave($event)">
+      <div class="form-group input-field col s12">
+        <label for="title">Title</label>
+        <input id="title" formControlName="title" type="text" class="validate">
+      </div>
+      <div class="form-group input-field col s12">
+        <label for="description">Descripción</label>
+        <textarea id="description" formControlName="description" class="materialize-textarea"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
